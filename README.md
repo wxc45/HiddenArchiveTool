@@ -2,6 +2,7 @@
 
 **剥离媒体外壳、修复偏移错位、自动识别密码编码、递归解多层** —— 一个本地运行的小工具，专门对付「MP4 改 ZIP」这类伪装资源。
 
+[![smoke](https://github.com/wxc45/HiddenArchiveTool/actions/workflows/smoke.yml/badge.svg)](https://github.com/wxc45/HiddenArchiveTool/actions/workflows/smoke.yml)
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)
