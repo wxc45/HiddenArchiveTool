@@ -30,3 +30,6 @@ jobs:
 
       - name: Smoke test
         run: python tests/test_smoke.py
+        env:
+          PYTHONUTF8: "1"
+          PYTHONIOENCODING: utf-8

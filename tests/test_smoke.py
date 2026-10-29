@@ -22,6 +22,14 @@ import zipfile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 
+# Windows 的 CI 控制台默认是 cp1252，输出中文会抛 UnicodeEncodeError，
+# 直接导致「测试全过但脚本崩溃」。这里强制 UTF-8 并容错。
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except Exception:  # 老版本 Python / 非标准流
+    pass
+
 from core import extractor, passwords, probe, zipkit  # noqa: E402
 
 MEDIA_HEAD = b"\x00\x00\x00\x20ftypisom"
