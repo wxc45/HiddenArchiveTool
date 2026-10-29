@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: 下载最新版本
+    url: https://github.com/wxc45/HiddenArchiveTool/releases/latest
+    about: 直接下载源码 zip，解压后双击 run.bat 即可，无需 git
+  - name: 先看常见问题
+    url: https://github.com/wxc45/HiddenArchiveTool#常见问题
+    about: 双击没反应、提示找不到 7-Zip、解出文件变少等问题这里都有答案

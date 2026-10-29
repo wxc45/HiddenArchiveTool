@@ -1,0 +1,71 @@
+name: 问题反馈
+description: 解不开、解出来不对、界面报错……先在这里描述现象
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > **注意**：请勿上传或链接受版权保护的资源文件（视频、游戏、破解包）。
+        > 复现只需要**结构信息**：偏移量、条目名、加密方式、错误日志。
+
+  - type: textarea
+    id: symptom
+    attributes:
+      label: 现象
+      description: 发生了什么？期望的结果是什么？
+      placeholder: |
+        例：扫描能识别出 ZIP 和 415 MB 的偏移错位，但解压报「密码未命中」。
+        用 7-Zip 手动解同一层是可以的。
+    validations:
+      required: true
+
+  - type: textarea
+    id: structure
+    attributes:
+      label: 结构扫描结果
+      description: 界面上点「扫描结构」后，把分段条下方那段提示或日志贴进来
+      render: text
+      placeholder: |
+        文件：xxx.mp4（3.57 GB）
+        外壳：检测到 MP4 媒体头，占用前 415.14 MB
+        错位：中央目录记录的位置比真实位置小 415.14 MB
+        压缩包：ZIP · 3.17 GB · 1 个条目 · AES-256 加密（1 条）
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 完整日志
+      description: 界面「执行日志」面板的内容，或命令行输出
+      render: text
+    validations:
+      required: true
+
+  - type: input
+    id: env
+    attributes:
+      label: 环境
+      description: 系统 / Python / 7-Zip 版本
+      placeholder: Windows 11 24H2 · Python 3.12.4 · 7-Zip 24.09
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 其他补充
+      description: 这个文件有什么特别之处？比如多层嵌套、作者自制的打包器、非标准加密等
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      options:
+        - label: 我已使用最新 Release 版本复现
+          required: true
+        - label: 我提交的内容不含受版权保护的资源文件
+          required: true

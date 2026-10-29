@@ -1,0 +1,52 @@
+name: 功能建议
+description: 想要新的能力，或者现有行为不够顺手
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 你遇到的问题
+      description: 先说场景，再说方案。避免只写一句「希望支持 XXX」
+      placeholder: |
+        例：一次拿到 20 个这样的文件，现在只能一个个拖进去解，
+        每次都要等进度条。希望能选一个目录批量跑。
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: 你设想的方案
+      description: 界面怎么交互、行为应该是什么样
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 替代方案
+      description: 现在有没有绕过去的办法？为什么不够用？
+    validations:
+      required: false
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: 大致属于
+      options:
+        - 解析/解压能力（新格式、新形态）
+        - 界面与交互
+        - 性能（大文件、多文件）
+        - 文档与提示
+        - 其他
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: pr
+    attributes:
+      label: 参与意愿
+      options:
+        - label: 我愿意提 PR 实现这个功能
+          required: false

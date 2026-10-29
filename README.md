@@ -3,6 +3,7 @@
 **剥离媒体外壳、修复偏移错位、自动识别密码编码、递归解多层** —— 一个本地运行的小工具，专门对付「MP4 改 ZIP」这类伪装资源。
 
 [![smoke](https://github.com/wxc45/HiddenArchiveTool/actions/workflows/smoke.yml/badge.svg)](https://github.com/wxc45/HiddenArchiveTool/actions/workflows/smoke.yml)
+[![release](https://img.shields.io/github/v/release/wxc45/HiddenArchiveTool?color=4f46e5)](https://github.com/wxc45/HiddenArchiveTool/releases/latest)
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)
@@ -66,6 +67,11 @@ ZIP 的中央目录里存的是**相对于压缩包起点**的偏移。有人在
 ---
 
 ## 快速开始
+
+### 直接下载（不用 git）
+
+去 [Releases](https://github.com/wxc45/HiddenArchiveTool/releases/latest) 下载
+`HiddenArchiveTool-1.0.0.zip`，解压后双击 `run.bat` 即可。
 
 ### Windows（推荐）
 
@@ -195,6 +201,15 @@ recursive layers, and per-entry CRC32 verification. A Windows launcher is
 included; `python launcher.py` works anywhere.
 
 MIT licensed.
+
+---
+
+## 参与贡献
+
+欢迎提 Issue 与 PR。开始之前请扫一眼 [CONTRIBUTING.md](CONTRIBUTING.md)，
+里面有模块分工、硬性约束（流式处理、`safe_join`、不删用户文件）和测试要求。
+
+> 提 Issue 时请勿上传受版权保护的资源文件，复现只需结构信息与日志。
 
 ---
 
