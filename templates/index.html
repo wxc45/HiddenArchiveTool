@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>隐包解构器 · HiddenArchiveTool</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 7V5a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <path d="M12 11v5"/><path d="M9 14l3 3 3-3"/>
+      </svg>
+    </div>
+    <div>
+      <h1>隐包解构器</h1>
+      <div class="sub">剥离媒体外壳 · 修正偏移错位 · 自动识别密码编码 · 递归解多层</div>
+    </div>
+    <div class="tag">local only</div>
+  </header>
+
+  <!-- 1. 选择文件 -->
+  <section class="card">
+    <div class="card-title"><span class="idx">1</span>选择文件</div>
+    <div class="row">
+      <input id="path" type="text" placeholder="粘贴文件路径，例如 D:\Downloads\xxxx.mp4（mp4 / mkv / jpg / zip 都可以）">
+      <button id="btnBrowse">浏览…</button>
+      <button id="btnScan" class="primary">扫描结构</button>
+    </div>
+    <div class="hint">
+      不联网、不上传：后端直接读取本机文件。扫描只读文件首尾，不会修改原文件。
+    </div>
+  </section>
+
+  <!-- 2. 结构 -->
+  <section class="card hidden" id="cardStruct">
+    <div class="card-title"><span class="idx">2</span>结构分析</div>
+    <div class="segbar" id="segbar"></div>
+    <div class="legend" id="legend"></div>
+    <div class="grid" id="metrics"></div>
+    <div id="notes"></div>
+  </section>
+
+  <!-- 3. 解压 -->
+  <section class="card hidden" id="cardRun">
+    <div class="card-title"><span class="idx">3</span>解压设置</div>
+
+    <div class="section-title">密码</div>
+    <p class="section-desc">
+      每行一个；留空则视为无密码。会自动尝试 UTF-8 / GBK / UTF-16LE 等编码，
+      也能修复「鏌愪笉鐭ュ悕…」这类乱码密码，无需手动换算。
+    </p>
+    <textarea id="pw" placeholder="例：某不知名网友分享（支持直接粘贴乱码密码）"></textarea>
+
+    <div class="section-title" style="margin-top:16px">输出目录</div>
+    <div class="row">
+      <input id="out" type="text" placeholder="留空则输出到同级目录 <文件名>_extracted">
+      <button id="btnOut">浏览…</button>
+    </div>
+
+    <div class="opts">
+      <label class="chk"><input type="checkbox" id="deep"> 深度扫描（全文件找隐藏包，较慢）</label>
+      <label class="chk"><input type="checkbox" id="exportRepaired"> 导出修复后的压缩包</label>
+      <label class="chk"><input type="checkbox" id="cleanNested" checked> 解完自动清理中间包</label>
+      <label class="chk">递归层数
+        <input id="maxDepth" type="text" value="3" style="width:46px;padding:3px 8px;text-align:center">
+      </label>
+    </div>
+
+    <div class="row" style="margin-top:16px">
+      <button id="btnStart" class="primary" disabled>开始解压</button>
+      <button id="btnCancel" class="danger" disabled>停止</button>
+    </div>
+  </section>
+
+  <!-- 4. 进度 -->
+  <section class="card hidden" id="cardProgress">
+    <div class="card-title"><span class="idx">4</span>执行日志</div>
+    <div class="bar" id="bar"><i></i></div>
+    <div class="status">
+      <span id="statusText">等待开始</span>
+      <b id="pct">0%</b>
+    </div>
+    <div class="log" id="log"><div class="line empty">—</div></div>
+  </section>
+
+  <footer>
+    解出的文件仅作个人备份用途；请自行确认资源来源与版权的合法性。<br>
+    密码与文件均不离开本机，服务只监听 127.0.0.1。
+  </footer>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# 运行产物
+*_extracted/
+*_repaired.zip
+out/
+*.tmp
+
+# 日志与临时输出
+*.log
+_out.txt
+_run*.txt
+_smoke.txt
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
